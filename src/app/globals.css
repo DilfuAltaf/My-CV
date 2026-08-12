@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-secondary-text: var(--secondary-text);
+}
+
+/* Light Theme (Default) */
+:root {
+  --background: #FFFFFF;
+  --foreground: #111827;
+  --card: #F8FAFC;
+  --border: #E2E8F0;
+  --primary: #111827; /* Pure Black for accents in Light Mode */
+  --primary-glow: rgba(0, 0, 0, 0.15);
+  --secondary-text: #6B7280;
+}
+
+/* Dark Theme */
+.dark {
+  --background: #09090B;
+  --foreground: #FAFAFA;
+  --card: #18181B;
+  --border: #27272A;
+  --primary: #22c55e; /* Neon Green for accents in Dark Mode */
+  --primary-glow: rgba(34, 197, 94, 0.6);
+  --secondary-text: #A1A1AA;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}

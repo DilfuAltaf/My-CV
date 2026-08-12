@@ -1,0 +1,41 @@
+{
+  "Navbar": {
+    "about": "Tentang",
+    "skills": "Keahlian",
+    "projects": "Proyek",
+    "experience": "Pengalaman",
+    "contact": "Kontak"
+  },
+  "Hero": {
+    "greeting": "Hai, Saya",
+    "role": "Frontend Developer",
+    "viewProjects": "Lihat Proyek",
+    "contactMe": "Hubungi Saya"
+  },
+  "About": {
+    "title": "Tentang Saya",
+    "introTitle": "Halo, Saya Dilfu.",
+    "introText": "Saya adalah seorang Frontend Developer yang bersemangat dalam membangun pengalaman digital yang luar biasa. Saya berfokus pada penulisan kode yang bersih, elegan, dan efisien untuk menciptakan aplikasi web yang mudah digunakan.",
+    "downloadResume": "Unduh Resume",
+    "locationTitle": "Lokasi",
+    "locationText": "Jakarta, Indonesia",
+    "educationTitle": "Pendidikan",
+    "educationText": "Ilmu Komputer"
+  },
+  "Skills": {
+    "title": "Keahlian",
+    "projectsUsing": "Proyek Menggunakan"
+  },
+  "Contact": {
+    "title": "Kontak",
+    "subtitle": "Punya proyek atau ingin bekerja sama? Mari kita bicarakan.",
+    "contactInfo": "Informasi Kontak",
+    "name": "Nama",
+    "namePlaceholder": "Budi Santoso",
+    "email": "Email",
+    "message": "Pesan",
+    "messagePlaceholder": "Ceritakan tentang proyek Anda...",
+    "send": "Kirim Pesan",
+    "success": "Pesan Terkirim!"
+  }
+}

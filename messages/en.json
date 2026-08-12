@@ -1,0 +1,41 @@
+{
+  "Navbar": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "greeting": "Hi, I'm",
+    "role": "Frontend Developer",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me"
+  },
+  "About": {
+    "title": "About Me",
+    "introTitle": "Hello, I'm Dilfu.",
+    "introText": "I am a passionate Frontend Developer specializing in building exceptional digital experiences. I focus on writing clean, elegant, and efficient code to create user-friendly web applications.",
+    "downloadResume": "Download Resume",
+    "locationTitle": "Location",
+    "locationText": "Jakarta, Indonesia",
+    "educationTitle": "Education",
+    "educationText": "Computer Science"
+  },
+  "Skills": {
+    "title": "Skills & Expertise",
+    "projectsUsing": "Projects Using"
+  },
+  "Contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have a project in mind or want to explore an opportunity? Let's talk about it.",
+    "contactInfo": "Contact Information",
+    "name": "Name",
+    "namePlaceholder": "John Doe",
+    "email": "Email",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "send": "Send Message",
+    "success": "Message Sent!"
+  }
+}
