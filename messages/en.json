@@ -8,14 +8,14 @@
   },
   "Hero": {
     "greeting": "Hi, I'm",
-    "role": "Frontend Developer",
+    "role": "Fullstack Developer",
     "viewProjects": "View Projects",
     "contactMe": "Contact Me"
   },
   "About": {
     "title": "About Me",
     "introTitle": "Hello, I'm Dilfu.",
-    "introText": "I am a passionate Frontend Developer specializing in building exceptional digital experiences. I focus on writing clean, elegant, and efficient code to create user-friendly web applications.",
+    "introText": "I am a passionate Fullstack Developer specializing in building exceptional digital experiences. I focus on writing clean, elegant, and efficient code to create user-friendly web applications.",
     "downloadResume": "Download Resume",
     "locationTitle": "Location",
     "locationText": "Jakarta, Indonesia",

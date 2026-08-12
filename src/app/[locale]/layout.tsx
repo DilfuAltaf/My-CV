@@ -10,8 +10,8 @@ import { notFound } from "next/navigation";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Dilfu Altaf | Frontend Developer",
-  description: "Portfolio of Dilfu Altaf Athaya Rifi, a modern Frontend Developer.",
+  title: "Dilfu Altaf | Fullstack Developer",
+  description: "Portfolio of Dilfu Altaf Athaya Rifi, a modern Fullstack Developer.",
 };
 
 export default async function RootLayout({

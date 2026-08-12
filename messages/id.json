@@ -8,14 +8,14 @@
   },
   "Hero": {
     "greeting": "Hai, Saya",
-    "role": "Frontend Developer",
+    "role": "Fullstack Developer",
     "viewProjects": "Lihat Proyek",
     "contactMe": "Hubungi Saya"
   },
   "About": {
     "title": "Tentang Saya",
     "introTitle": "Halo, Saya Dilfu.",
-    "introText": "Saya adalah seorang Frontend Developer yang bersemangat dalam membangun pengalaman digital yang luar biasa. Saya berfokus pada penulisan kode yang bersih, elegan, dan efisien untuk menciptakan aplikasi web yang mudah digunakan.",
+    "introText": "Saya adalah seorang Fullstack Developer yang bersemangat dalam membangun pengalaman digital yang luar biasa. Saya berfokus pada penulisan kode yang bersih, elegan, dan efisien untuk menciptakan aplikasi web yang mudah digunakan.",
     "downloadResume": "Unduh Resume",
     "locationTitle": "Lokasi",
     "locationText": "Jakarta, Indonesia",

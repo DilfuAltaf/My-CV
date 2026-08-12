@@ -22,7 +22,7 @@ export function About() {
           <div className="col-span-1 md:col-span-2 bg-card border border-border rounded-3xl p-8 hover:border-primary/50 transition-colors duration-300">
             <h3 className="text-2xl font-semibold mb-4">{t("introTitle") || "Hello, I'm Dilfu."}</h3>
             <p className="text-secondary-text leading-relaxed text-lg">
-              {t("introText") || "I am a passionate Frontend Developer specializing in building exceptional digital experiences. I focus on writing clean, elegant, and efficient code to create user-friendly web applications."}
+              {t("introText") || "I am a passionate Fullstack Developer specializing in building exceptional digital experiences. I focus on writing clean, elegant, and efficient code to create user-friendly web applications."}
             </p>
             <button className="mt-8 flex items-center space-x-2 bg-foreground text-background px-6 py-3 rounded-full hover:bg-primary hover:text-white transition-colors duration-300">
               <span>{t("downloadResume") || "Download Resume"}</span>
