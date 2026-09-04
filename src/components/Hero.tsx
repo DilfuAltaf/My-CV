@@ -162,17 +162,19 @@ export function Hero() {
           </motion.div>
         </motion.div>
         
-        {/* Metadata */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="absolute bottom-12 left-6 sm:left-12 md:left-24 flex flex-col text-[10px] sm:text-xs text-[#18FF78] opacity-70 tracking-[0.2em] uppercase font-mono space-y-2 [text-shadow:0_0_8px_rgba(24,255,120,0.3)]"
-        >
+      </motion.div>
+
+      {/* Metadata */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="absolute bottom-12 left-0 w-full z-20 pointer-events-none"
+      >
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 md:px-24 flex flex-col text-[10px] sm:text-xs text-[#18FF78] opacity-70 tracking-[0.2em] uppercase font-mono space-y-2 [text-shadow:0_0_8px_rgba(24,255,120,0.3)]">
           <span>Jakarta, Indonesia</span>
           <span>2026</span>
-        </motion.div>
-
+        </div>
       </motion.div>
     </section>
   );
