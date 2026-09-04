@@ -20,7 +20,11 @@
     "locationTitle": "Lokasi",
     "locationText": "Jakarta, Indonesia",
     "educationTitle": "Pendidikan",
-    "educationText": "Ilmu Komputer"
+    "educationText": "Ilmu Komputer",
+    "focusTitle": "Fokus Saat Ini",
+    "focusText": "Frontend & Fullstack Development",
+    "resumeTitle": "Resume / CV",
+    "resumeSubtitle": "Unduh resume terbaru saya"
   },
   "Skills": {
     "title": "Keahlian",
@@ -31,10 +35,11 @@
     "subtitle": "Punya proyek atau ingin bekerja sama? Mari kita bicarakan.",
     "contactInfo": "Informasi Kontak",
     "name": "Nama",
-    "namePlaceholder": "Budi Santoso",
+    "namePlaceholder": "Masukkan nama Anda",
     "email": "Email",
+    "emailPlaceholder": "Masukkan email Anda",
     "message": "Pesan",
-    "messagePlaceholder": "Ceritakan tentang proyek Anda...",
+    "messagePlaceholder": "Masukkan pesan Anda",
     "send": "Kirim Pesan",
     "success": "Pesan Terkirim!"
   }

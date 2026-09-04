@@ -7,6 +7,7 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { useLenis } from "lenis/react";
 
 function cn(...inputs: (string | undefined | null | false)[]) {
   return twMerge(clsx(inputs));
@@ -18,6 +19,16 @@ export function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const lenis = useLenis();
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+    e.preventDefault();
+    if (lenis) {
+      lenis.scrollTo(target);
+    } else {
+      document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -63,11 +74,34 @@ export function Navbar() {
         </div>
         
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#about" className="text-secondary-text hover:text-primary transition-all text-sm font-medium hover:[text-shadow:0_0_10px_var(--primary-glow)]">{t("about")}</a>
-          <a href="#skills" className="text-secondary-text hover:text-primary transition-all text-sm font-medium hover:[text-shadow:0_0_10px_var(--primary-glow)]">{t("skills")}</a>
-          <a href="#projects" className="text-secondary-text hover:text-primary transition-all text-sm font-medium hover:[text-shadow:0_0_10px_var(--primary-glow)]">{t("projects")}</a>
-          <a href="#experience" className="text-secondary-text hover:text-primary transition-all text-sm font-medium hover:[text-shadow:0_0_10px_var(--primary-glow)]">{t("experience")}</a>
-          <a href="#contact" className="text-secondary-text hover:text-primary transition-all text-sm font-medium hover:[text-shadow:0_0_10px_var(--primary-glow)]">{t("contact")}</a>
+          <a 
+            href="#about" 
+            onClick={(e) => handleNavClick(e, '#about')}
+            className="text-secondary-text hover:text-primary transition-all text-sm font-medium hover:[text-shadow:0_0_10px_var(--primary-glow)]"
+          >
+            {t("about")}
+          </a>
+          <a 
+            href="#skills" 
+            onClick={(e) => handleNavClick(e, '#skills')}
+            className="text-secondary-text hover:text-primary transition-all text-sm font-medium hover:[text-shadow:0_0_10px_var(--primary-glow)]"
+          >
+            {t("skills")}
+          </a>
+          <a 
+            href="#projects" 
+            onClick={(e) => handleNavClick(e, '#projects')}
+            className="text-secondary-text hover:text-primary transition-all text-sm font-medium hover:[text-shadow:0_0_10px_var(--primary-glow)]"
+          >
+            {t("projects")}
+          </a>
+          <a 
+            href="#contact" 
+            onClick={(e) => handleNavClick(e, '#contact')}
+            className="text-secondary-text hover:text-primary transition-all text-sm font-medium hover:[text-shadow:0_0_10px_var(--primary-glow)]"
+          >
+            {t("contact")}
+          </a>
         </div>
         
         <div className="flex items-center space-x-3">

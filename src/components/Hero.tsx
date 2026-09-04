@@ -2,40 +2,58 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { createClient } from "@/utils/supabase/client";
 
 export function Hero() {
   const t = useTranslations("Hero");
+  const [heroData, setHeroData] = useState<any>(null);
+  const supabase = createClient();
+
+  useEffect(() => {
+    async function fetchHero() {
+      try {
+        const { data, error } = await supabase.from("hero").select("*").limit(1).single();
+        if (data && !error) {
+          setHeroData(data);
+        }
+      } catch (err) {
+        console.error("Error fetching hero:", err);
+      }
+    }
+    fetchHero();
+  }, []);
 
   return (
-    <section className="h-screen flex flex-col justify-center items-center text-center px-4 pt-16">
+    <section className="relative h-screen flex flex-col justify-center items-center text-center px-4 pt-16 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-4xl mx-auto"
+        className="relative z-10 max-w-4xl mx-auto pointer-events-none"
       >
         <h2 className="text-secondary-text text-lg sm:text-xl font-medium tracking-wide mb-4">
-          {t("greeting")}
+          {heroData?.greeting || t("greeting")}
         </h2>
         <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter text-foreground dark:text-primary mb-6 dark:[text-shadow:0_0_20px_var(--primary-glow)]">
-          Dilfu
+          {heroData?.display_name || "Dilfu"}
         </h1>
         <p className="text-xl sm:text-2xl text-secondary-text mb-10 font-light">
-          {t("role")}
+          {heroData?.job_title || t("role")}
         </p>
         
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 pointer-events-auto">
           <a
-            href="#projects"
+            href={heroData?.primary_cta_link || "#projects"}
             className="px-8 py-3 bg-foreground text-background font-medium rounded-full hover:bg-primary hover:text-background transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_var(--primary-glow)]"
           >
-            {t("viewProjects")}
+            {heroData?.primary_cta_text || t("viewProjects")}
           </a>
           <a
-            href="#contact"
+            href={heroData?.secondary_cta_link || "#contact"}
             className="px-8 py-3 bg-card border border-border text-foreground font-medium rounded-full hover:border-primary hover:text-primary transition-all duration-300 hover:shadow-[0_0_15px_var(--primary-glow)]"
           >
-            {t("contactMe")}
+            {heroData?.secondary_cta_text || t("contactMe")}
           </a>
         </div>
       </motion.div>

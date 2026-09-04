@@ -20,7 +20,11 @@
     "locationTitle": "Location",
     "locationText": "Jakarta, Indonesia",
     "educationTitle": "Education",
-    "educationText": "Computer Science"
+    "educationText": "Computer Science",
+    "focusTitle": "Current Focus",
+    "focusText": "Frontend & Fullstack Development",
+    "resumeTitle": "Resume / CV",
+    "resumeSubtitle": "Download my latest resume"
   },
   "Skills": {
     "title": "Skills & Expertise",
@@ -31,10 +35,11 @@
     "subtitle": "Have a project in mind or want to explore an opportunity? Let's talk about it.",
     "contactInfo": "Contact Information",
     "name": "Name",
-    "namePlaceholder": "John Doe",
+    "namePlaceholder": "Enter your name",
     "email": "Email",
+    "emailPlaceholder": "Enter your email",
     "message": "Message",
-    "messagePlaceholder": "Tell me about your project...",
+    "messagePlaceholder": "Enter your message",
     "send": "Send Message",
     "success": "Message Sent!"
   }
