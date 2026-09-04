@@ -29,16 +29,33 @@ export function About() {
     <section id="about" className="py-24 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.1,
+              },
+            },
+          }}
         >
-          <h2 className="text-3xl font-bold mb-12 text-center md:text-left">{t("title") || "About Me"}</h2>
+          <motion.h2 
+            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+            className="text-3xl font-bold mb-12 text-center md:text-left"
+          >
+            {t("title") || "About Me"}
+          </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             {/* Card 1 - Profile Photo */}
-            <div className="md:col-span-5 lg:col-span-4 bg-card border border-border rounded-3xl overflow-hidden relative group min-h-[300px] md:min-h-[400px] flex items-center justify-center">
+            <motion.div 
+              variants={{ hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } } }}
+              className="md:col-span-5 lg:col-span-4 bg-card border border-border rounded-3xl overflow-hidden relative group min-h-[300px] md:min-h-[400px] flex items-center justify-center"
+            >
               {profile?.profile_image_url ? (
                 <img src={profile.profile_image_url} alt={profile.full_name || "Profile"} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               ) : (
@@ -49,13 +66,16 @@ export function About() {
               )}
               {/* Subtle Overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 dark:group-hover:bg-black/20 transition-colors duration-500 z-10" />
-            </div>
+            </motion.div>
             
             {/* Card 2 - Introduction & Info */}
             <div className="md:col-span-7 lg:col-span-8 flex flex-col gap-6">
               
               {/* Intro Card */}
-              <div className="bg-card border border-border rounded-3xl p-8 hover:border-primary/50 transition-colors duration-300 flex-1">
+              <motion.div 
+                variants={{ hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0, transition: { duration: 0.6 } } }}
+                className="bg-card border border-border rounded-3xl p-8 hover:border-primary/50 transition-colors duration-300 flex-1"
+              >
                 <h3 className="text-3xl font-bold mb-4 text-foreground">
                   Hello, I'm {profile?.display_name || profile?.full_name || "Dilfu"}.
                 </h3>
@@ -97,10 +117,13 @@ export function About() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Resume Button Card */}
-              <div className="bg-card border border-border rounded-3xl p-6 md:p-8 hover:border-primary/50 transition-colors duration-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <motion.div 
+                variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+                className="bg-card border border-border rounded-3xl p-6 md:p-8 hover:border-primary/50 transition-colors duration-300 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
+              >
                 <div>
                   <h4 className="font-semibold text-foreground">{t("resumeTitle") || "Resume / CV"}</h4>
                   <p className="text-sm text-secondary-text mt-1">{t("resumeSubtitle") || "Download my latest resume"}</p>
@@ -115,7 +138,7 @@ export function About() {
                     <span>Not Available</span>
                   </button>
                 )}
-              </div>
+              </motion.div>
 
             </div>
           </div>

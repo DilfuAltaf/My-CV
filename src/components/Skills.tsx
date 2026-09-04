@@ -112,12 +112,25 @@ export function Skills() {
     <section id="skills" className="py-24 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
         >
-          <h2 className="text-3xl font-bold mb-12 text-center md:text-left">{t("title") || "Skills & Expertise"}</h2>
+          <motion.h2 
+            variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+            className="text-3xl font-bold mb-12 text-center md:text-left"
+          >
+            {t("title") || "Skills & Expertise"}
+          </motion.h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense auto-rows-[minmax(160px,auto)] gap-4 md:gap-6">
             {skills.map((skill, index) => {
@@ -128,6 +141,10 @@ export function Skills() {
               return (
                 <motion.div
                   key={skill.name}
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8 },
+                    visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100, damping: 15 } }
+                  }}
                   whileHover={{ scale: 0.98 }}
                   className={`group relative bg-card/40 backdrop-blur-sm border border-border rounded-3xl p-6 flex flex-col justify-center items-center text-center hover:border-primary/80 hover:shadow-[0_0_30px_var(--primary-glow)] transition-all duration-500 overflow-hidden cursor-pointer ${spanClass}`}
                 >
