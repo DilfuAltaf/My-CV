@@ -50,6 +50,28 @@ const getBentoSpan = (index: number) => {
   return pattern[index % pattern.length];
 };
 
+const dotContainerVariants: any = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const dotItemVariants: any = {
+  hidden: { opacity: 0, scale: 0.4 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.25,
+      ease: "easeOut",
+    },
+  },
+};
+
 function SkillDots({ level }: { level: string }) {
   const getDots = (level: string) => {
     switch (level.toLowerCase()) {
@@ -64,18 +86,86 @@ function SkillDots({ level }: { level: string }) {
   const dots = getDots(level);
   
   return (
-    <div className="flex space-x-1.5 mt-3 justify-center">
+    <motion.div 
+      variants={dotContainerVariants}
+      className="flex space-x-1.5 mt-3 justify-center"
+    >
       {[1, 2, 3, 4, 5].map((i) => (
-        <div 
+        <motion.div 
           key={i} 
+          variants={dotItemVariants}
           className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-            i <= dots ? 'bg-primary' : 'bg-border'
+            i <= dots ? 'bg-primary shadow-[0_0_5px_var(--primary-glow)]' : 'bg-border'
           }`} 
         />
       ))}
-    </div>
+    </motion.div>
   );
 }
+
+const sectionVariants: any = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const titleVariants: any = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
+const gridVariants: any = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const cardVariants: any = {
+  hidden: { 
+    opacity: 0, 
+    y: 24, 
+    scale: 0.97 
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { 
+      duration: 0.45,
+      ease: "easeOut"
+    } 
+  },
+};
+
+const iconVariants: any = {
+  hidden: { opacity: 0, y: 8, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+      delay: 0.1,
+    },
+  },
+};
 
 export function Skills() {
   const t = useTranslations("Skills");
@@ -97,7 +187,6 @@ export function Skills() {
         if (data && data.length > 0) {
           setSkills(data);
         } else {
-          // If query succeeds but returns 0 rows, use fallback
           setSkills(fallbackSkills);
         }
       } catch (err) {
@@ -114,25 +203,20 @@ export function Skills() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
+          viewport={{ once: true, margin: "-60px" }}
+          variants={sectionVariants}
         >
           <motion.h2 
-            variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
-            className="text-3xl font-bold mb-12 text-center md:text-left"
+            variants={titleVariants}
+            className="text-3xl font-bold mb-12 text-center md:text-left text-foreground"
           >
             {t("title") || "Skills & Expertise"}
           </motion.h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense auto-rows-[minmax(160px,auto)] gap-4 md:gap-6">
+          <motion.div 
+            variants={gridVariants}
+            className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense auto-rows-[minmax(160px,auto)] gap-4 md:gap-6"
+          >
             {skills.map((skill, index) => {
               const IconComponent = IconMap[skill.icon] || SiJavascript;
               const spanClass = getBentoSpan(index);
@@ -141,24 +225,25 @@ export function Skills() {
               return (
                 <motion.div
                   key={skill.name}
-                  variants={{
-                    hidden: { opacity: 0, scale: 0.8 },
-                    visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100, damping: 15 } }
-                  }}
-                  whileHover={{ scale: 0.98 }}
-                  className={`group relative bg-card/40 backdrop-blur-sm border border-border rounded-3xl p-6 flex flex-col justify-center items-center text-center hover:border-primary/80 hover:shadow-[0_0_30px_var(--primary-glow)] transition-all duration-500 overflow-hidden cursor-pointer ${spanClass}`}
+                  variants={cardVariants}
+                  whileHover={{ y: -3 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className={`group relative bg-card/40 backdrop-blur-sm border border-border rounded-3xl p-6 flex flex-col justify-center items-center text-center hover:border-primary/70 hover:shadow-[0_0_24px_var(--primary-glow)] transition-all duration-500 overflow-hidden cursor-pointer ${spanClass}`}
                 >
                   {/* Subtle Background Glow on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
                   
                   {/* Faint Background Logo Watermark */}
-                  <div className="absolute -bottom-6 -right-6 opacity-5 group-hover:opacity-10 transition-all duration-700 z-0 pointer-events-none rotate-12 group-hover:-rotate-12 group-hover:scale-110 text-foreground">
+                  <div className="absolute -bottom-6 -right-6 opacity-[0.04] group-hover:opacity-[0.10] transition-all duration-700 ease-out z-0 pointer-events-none rotate-12 group-hover:rotate-6 group-hover:scale-105 text-foreground">
                     <IconComponent className={`${isLarge ? 'w-40 h-40' : 'w-24 h-24'}`} />
                   </div>
                   
-                  <span className={`${isLarge ? 'text-6xl mb-6' : 'text-4xl mb-4'} group-hover:-translate-y-2 group-hover:scale-110 transition-transform duration-500 z-10 text-foreground`}>
+                  <motion.span 
+                    variants={iconVariants}
+                    className={`${isLarge ? 'text-6xl mb-6' : 'text-4xl mb-4'} group-hover:-translate-y-1.5 group-hover:scale-105 transition-transform duration-500 z-10 text-foreground`}
+                  >
                     <IconComponent />
-                  </span>
+                  </motion.span>
                   
                   <div className="z-10 transition-transform duration-500 group-hover:-translate-y-1">
                     <h4 className="text-xl font-bold text-foreground">{skill.name}</h4>
@@ -168,7 +253,7 @@ export function Skills() {
                 </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
