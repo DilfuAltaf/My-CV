@@ -20,15 +20,16 @@ function DataFlowBackground() {
       className="absolute inset-0 overflow-hidden pointer-events-none"
     >
       <svg
-        className="absolute w-full h-full opacity-30"
+        className="absolute w-full h-full opacity-40"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
-        {/* Subtle curved lines representing data flow */}
+        {/* Subtle curved lines representing data flow with neon glow */}
         <motion.path
+          style={{ filter: "drop-shadow(0 0 4px rgba(24,255,120,0.4))" }}
           d="M-10,40 C20,20 40,70 70,30 C90,0 110,50 120,30"
           fill="none"
-          stroke="#00ff66"
+          stroke="#18FF78"
           strokeWidth="0.05"
           strokeDasharray="2 4"
           initial={{ strokeDashoffset: 100 }}
@@ -36,9 +37,10 @@ function DataFlowBackground() {
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         />
         <motion.path
+          style={{ filter: "drop-shadow(0 0 3px rgba(24,255,120,0.3))" }}
           d="M-10,70 C30,80 50,10 80,40 C100,60 110,20 120,40"
           fill="none"
-          stroke="#00ff66"
+          stroke="#18FF78"
           strokeWidth="0.03"
           strokeDasharray="1 3"
           initial={{ strokeDashoffset: -100 }}
@@ -48,7 +50,7 @@ function DataFlowBackground() {
         <motion.path
           d="M-10,20 C30,10 60,60 100,20 C110,10 120,20 130,20"
           fill="none"
-          stroke="#ffffff"
+          stroke="#F5F7F5"
           strokeWidth="0.02"
           strokeDasharray="1 5"
           initial={{ strokeDashoffset: 50 }}
@@ -57,7 +59,7 @@ function DataFlowBackground() {
         />
       </svg>
       {/* Subtle vignettes to blend edges */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#080909]/50 to-[#080909]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#050706]/60 to-[#050706]"></div>
     </motion.div>
   );
 }
@@ -99,7 +101,7 @@ export function Hero() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[100vh] w-full flex flex-col justify-center bg-[#080909] text-[#f4f4f5] overflow-hidden"
+      className="relative min-h-[100vh] w-full flex flex-col justify-center bg-[#050706] text-[#F5F7F5] overflow-hidden"
     >
       <DataFlowBackground />
       
@@ -115,8 +117,8 @@ export function Hero() {
         >
           {/* Label */}
           <motion.div variants={itemVariants} className="mb-8 flex items-center space-x-4">
-            <span className="h-[1px] w-8 bg-[#00ff66] opacity-80"></span>
-            <h2 className="text-[#a1a1aa] text-xs sm:text-sm tracking-[0.25em] uppercase font-medium">
+            <span className="h-[1px] w-8 bg-[#18FF78] opacity-80 shadow-[0_0_8px_rgba(24,255,120,0.5)]"></span>
+            <h2 className="text-[#18FF78] text-xs sm:text-sm tracking-[0.25em] uppercase font-medium [text-shadow:0_0_8px_rgba(24,255,120,0.4)]">
               Creative Developer
             </h2>
           </motion.div>
@@ -124,7 +126,7 @@ export function Hero() {
           {/* Main Heading */}
           <motion.h1 
             variants={itemVariants}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold tracking-tighter leading-[0.95] mb-8 text-[#f4f4f5]"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold tracking-tighter leading-[0.95] mb-8 text-[#F5F7F5]"
           >
             DILFU <br className="hidden sm:block" />
             ALTAF
@@ -133,7 +135,7 @@ export function Hero() {
           {/* Support Text */}
           <motion.p 
             variants={itemVariants}
-            className="text-[#a1a1aa] text-lg sm:text-xl md:text-2xl max-w-xl mb-14 font-light leading-relaxed"
+            className="text-[#7D857F] text-lg sm:text-xl md:text-2xl max-w-xl mb-14 font-light leading-relaxed"
           >
             I build digital experiences that feel as good as they work.
           </motion.p>
@@ -145,14 +147,14 @@ export function Hero() {
           >
             <a 
               href="#projects" 
-              className="px-8 py-4 bg-[#111314] text-[#f4f4f5] border border-[#27272a] hover:border-[#00ff66]/40 hover:bg-[#181a1b] transition-all duration-300 text-sm tracking-widest uppercase font-medium relative group overflow-hidden flex items-center justify-center"
+              className="px-8 py-4 bg-[#0D110F] text-[#F5F7F5] border border-[#7D857F]/20 hover:border-[#18FF78] hover:bg-[#050706] hover:text-[#18FF78] hover:shadow-[0_0_12px_rgba(24,255,120,0.15)] hover:[text-shadow:0_0_8px_rgba(24,255,120,0.4)] transition-all duration-300 text-sm tracking-widest uppercase font-medium relative group overflow-hidden flex items-center justify-center rounded-sm"
             >
               <span className="relative z-10">Explore my work</span>
             </a>
             
             <a 
               href="#contact" 
-              className="px-8 py-4 bg-transparent text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors duration-300 text-sm tracking-widest uppercase font-medium flex items-center space-x-3 group"
+              className="px-8 py-4 bg-transparent text-[#7D857F] hover:text-[#18FF78] hover:[text-shadow:0_0_8px_rgba(24,255,120,0.4)] transition-all duration-300 text-sm tracking-widest uppercase font-medium flex items-center space-x-3 group"
             >
               <span>Get in touch</span>
               <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
@@ -165,7 +167,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
-          className="absolute bottom-12 left-6 sm:left-12 md:left-24 flex flex-col text-[10px] sm:text-xs text-[#52525b] tracking-[0.2em] uppercase font-mono space-y-2"
+          className="absolute bottom-12 left-6 sm:left-12 md:left-24 flex flex-col text-[10px] sm:text-xs text-[#18FF78] opacity-70 tracking-[0.2em] uppercase font-mono space-y-2 [text-shadow:0_0_8px_rgba(24,255,120,0.3)]"
         >
           <span>Jakarta, Indonesia</span>
           <span>2026</span>
